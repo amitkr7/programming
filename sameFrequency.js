@@ -1,4 +1,4 @@
-function sameFrequency(num1, num2) {
+function validAnagram(num1, num2) {
   let strNum1 = num1.toString();
   let strNum2 = num2.toString();
   if (strNum1.length !== strNum2.length) return false;
@@ -42,3 +42,6 @@ const sameFrequencyArr = (arr1, arr2) => {
 };
 
 console.log(sameFrequencyArr([1, 2, 1], [4, 2, 1]));
+console.log(validAnagram(121, 112));
+console.log(validAnagram('abde', 'deba'));
+console.log(validAnagram('rat', 'car'));
