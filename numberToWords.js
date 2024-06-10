@@ -56,7 +56,6 @@ const numberToWords = (number) => {
 };
 
 const remToWord = (rem) => {
-  console.log('REM', rem);
   let word = '';
   if (rem >= 100) {
     word += ones[Math.floor(rem / 100)] + ' hundred ';
