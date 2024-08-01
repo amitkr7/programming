@@ -1,0 +1,7 @@
+const reverse = (str) => {
+  //  return str.split('').reverse().join('');
+  if (str.length <= 1) return str;
+  return reverse(str.slice(1)) + str[0];
+};
+
+console.log(reverse('awesome'));
