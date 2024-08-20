@@ -62,13 +62,18 @@ class BinarySearchTree {
 }
 
 const bst = new BinarySearchTree();
-bst.insert(12);
-bst.insert(10);
-bst.insert(13);
-bst.insert(11);
-bst.insert(9);
-bst.insert(8);
-bst.insert(14);
-console.log(bst.root.left);
-console.log(bst.root.right);
-console.log(bst.contains(11));
+// bst.insert(12);
+// bst.insert(10);
+// bst.insert(13);
+// bst.insert(11);
+// bst.insert(9);
+// bst.insert(8);
+// bst.insert(14);
+// console.log(bst.root.left);
+// console.log(bst.root.right);
+// console.log(bst.contains(11));
+
+module.exports = {
+  Node,
+  BinarySearchTree,
+};
