@@ -28,16 +28,78 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
+
+  depthFirstSearchRecursive(start) {
+    let visited = {},
+      result = [];
+    let adjacencyList = this.adjacencyList;
+
+    function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      for (let item of adjacencyList[vertex]) {
+        if (!visited[item]) dfs(item);
+      }
+    }
+    dfs(start);
+    return result;
+  }
+
+  depthFirstSearchIterative(start) {
+    let visited = {},
+      result = [],
+      stack = [start];
+    let adjacencyList = this.adjacencyList;
+    visited[start] = true;
+    while (stack.length) {
+      const vertex = stack.pop();
+      result.push(vertex);
+
+      for (let item of adjacencyList[vertex]) {
+        if (!visited[item]) {
+          visited[item] = true;
+          stack.push(item);
+        }
+      }
+    }
+    return result;
+  }
+
+  breacthFirstSearchIterative(start) {
+    let visited = {},
+      result = [],
+      queue = [start];
+    let adjacencyList = this.adjacencyList;
+    visited[start] = true;
+    while (queue.length) {
+      const vertex = queue.shift();
+      result.push(vertex);
+      for (let item of adjacencyList[vertex]) {
+        if (!visited[item]) {
+          visited[item] = true;
+          queue.push(item);
+        }
+      }
+    }
+    return result;
+  }
 }
 
 const graph = new Graph();
-graph.addVertex('Test1');
-graph.addVertex('Test2');
-graph.addVertex('Test3');
-graph.addEdge('Test2', 'Test3');
-graph.addEdge('Test1', 'Test3');
-graph.addEdge('Test1', 'Test2');
+graph.addVertex('A');
+graph.addVertex('B');
+graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
+graph.addEdge('A', 'B');
+graph.addEdge('A', 'C');
+graph.addEdge('B', 'D');
+graph.addEdge('C', 'E');
+graph.addEdge('D', 'F');
+graph.addEdge('E', 'F');
 
-console.log(graph);
-graph.removeVertex('Test1');
-console.log(graph);
+console.log(graph.depthFirstSearchRecursive('A'));
+console.log(graph.depthFirstSearchIterative('A'));
+console.log(graph.breacthFirstSearchIterative('A'));
